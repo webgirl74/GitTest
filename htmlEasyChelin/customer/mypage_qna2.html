@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이지슐랭 :: 내일의 맛보기, 이지슐랭</title>
+
+    <style>
+        
+        
+        .container {
+            position: relative;
+        }
+
+        .mypage_qna_container {
+            margin-bottom: 3%;
+        }
+        /* 고객센터 박스 (aside)와 공지사항 박스(notice_wrap) */
+        .box {
+            /* border: 1px solid gray; */
+            margin-left: 20px;
+            margin-top: 50px;
+        }
+
+        /* 테이블 */
+        .boardWrite2 {
+            width: 100%;
+            height: auto;
+            text-align: start;
+            margin-bottom: 50px;
+            border-bottom: 1px solid #f4f4f4;
+            border-top: 1px solid rgb(0, 0, 0);
+        }
+
+        th {
+            padding: 15px 0 15px 20px;
+            width: 110px;
+            height: 50px;
+            color: #999;
+            font-size: 12px;
+            text-align: center;
+
+            background-color: #f7f5f8;
+            border-bottom: 1px solid #f4f4f4;
+            font-weight: 400;
+            vertical-align: middle;
+        }
+
+        td {
+            padding: 0 20px;
+            height: 50px;
+            color: #999;
+            font-size: 12px;
+            /* border-bottom: 1px solid #f1f1f1; */ /* td아래에 회색선 구분 */
+        }
+
+
+        .mypage_qna_tit {
+            color: #666;
+        }
+
+        .mypage_qna_tit:hover{
+            color: rgb(95, 0, 128);
+            text-decoration: none;
+        }
+
+        .aside {
+            width: 20%;
+        }
+
+        /* table 너비 사이즈 */
+        .mypage_qna_wrap {
+            width: 60%;
+            
+        }
+
+       /* 공지사항의 h4와 p태그  */
+       h4 {
+            display: inline-block;
+        }
+
+        p {
+            display: inline-block;
+            color: #999;
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: -.3px;
+            vertical-align: 3px;
+        }
+
+        
+
+        ol {
+            list-style: none;
+        }
+
+        /* 고객센터(list-menu) */
+        .list-menu {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+        }
+
+        .list-menu li{
+            border: 1px solid #f2f2f2;
+            color: #666;
+            height: 50px;
+            line-height: 50px;
+            
+        }
+
+        .list-menu li a{
+            font-size: 12px;
+            color: #666;
+            padding: 0px 15px;
+            
+        }
+
+        .list-menu li a:hover {
+            text-decoration: none;
+            color: rgb(95, 0, 128);
+            font-size: 13px;
+            font-weight: bold;
+            transition: all 0.1s ease-in-out;
+        }
+
+        #lists:hover {
+            background-color: #fafafa;
+            font-weight: bold;
+        }
+
+        .list-menu li a:hover #lists {
+            display: block;
+            background-color: aqua;
+        }
+
+        
+ /* list메뉴의 맨 아랫줄 빼고 겹치는 줄을 없애줌, collapse와 비슷한 기능 */
+        .list-menu li:nth-child(-n+4){
+            border-bottom: none;
+        }
+/* list-menu 오버시 보라색 화살표로 변함 */
+        .list-menu li a:hover .list_img2 {
+            display: inline-block;
+            top: 14px;
+            
+        }
+        
+/* snb의 검정색 화살표 */
+        .list_img {
+            width: 20px;
+            height: 20px;
+            top: 14px;
+            position: absolute;
+            right: 10px;
+        }
+/* snb의 보라색 화살표 */
+        .list_img2 {
+            display: none;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            right: 10px;
+        }
+
+         /*pagination  */
+         .page {
+            text-align: center;
+            width: 50%;
+            margin-left: 250px;
+            margin-top: 3px;
+        }
+
+        .pagination {
+            list-style: none;
+            display: inline-block;
+            padding: 0;
+           
+        }
+
+        /* 떨어진 요소들을 붙여주기위해  margin: 0 사용  */
+        .pagination li {
+            display: inline;
+            text-align: center;
+            margin: 0;
+        }
+       
+        .pagination a {
+            float: left;
+            display: block;
+            font-size: 12px;
+            text-decoration: none;
+            padding: 3px 9px;
+            color: #666;
+            border-top: 1px solid rgb(200, 200, 200);
+            border-bottom: 1px solid rgb(200, 200, 200);
+            border-right: 1px solid rgb(200, 200, 200);
+        }
+
+        .pagination a:hover {
+            color: rgb(95, 0, 128);
+            background-color: #fafafa;
+            text-decoration: none;
+        }
+        
+        #left_arrow1 {
+            border-left: 1px solid rgb(200, 200, 200);
+        }
+
+        /* writeBtn */
+
+        
+        /* page와 글쓰기버튼 wrap */
+        .page_bar {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .writeBtn a {
+            position: absolute;
+            display: block;
+            width: 70px; height: 25px;
+            line-height: 25px;
+            text-align: center;
+            color: white;
+            font-size: 12px;
+            background-color: rgba(95, 0, 128, 0.7);
+        }
+
+        .writeBtn a:hover {
+            color:  rgb(95, 0, 128);
+            text-decoration: none;
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 2px;
+        }
+
+        /* 1:1문의 wirteform */
+        colgroup {
+            font-weight: 400;
+        }
+
+        #passwordCheckQuestion {
+            margin-top: 10px;
+            margin-bottom: 3px;
+        }
+
+        .bhs_button {
+            background-color: rgba(95, 0, 128, 0.7);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 3px;
+        }
+        .bhs_button:hover {
+            background-color: rgba(95, 0, 128, 1);
+        }
+        
+        .qnaNotice {
+            color: #4c4c4c;
+            font-size: 12px;
+        }
+
+    </style>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#header').load("/header.html");
+            $('#footer').load("/footer.html");
+        });
+
+        $(document).ready(function () {
+            var currentPosition = parseInt($(".quickMenu").css("top"));
+            $(window).scroll(function () {
+                var position = $(window).scrollTop();
+                $(".quickMenu").stop().animate({ "top": (position / 1.5) + currentPosition + "px" }, 1500);
+            });
+        });
+    </script>
+
+
+    <!-- CSS -->
+    <link href="/css/main02.css" rel="stylesheet" type="text/css" />
+
+<body>
+    <!-- 헤더 -->
+    <div id="header"></div>
+
+    <!-- 메인 -->
+   
+    <div class="container mypage_qna_container">
+        <div class="row">
+            <div class="box aside mypage_qna_aside">
+                <h3>고객센터</h3><br>
+               
+                <ul class="list-menu">
+                    <li id="lists"><a href="/customer/noticeList.html">공지사항 <img src="/img/customer/arrow_black.svg" class="list_img">
+                         <img src="/img/customer/arrow_purple.svg" class="list_img2"></a></li>
+                    <li id="lists"><a href="/customer/faqList.html">자주하는 질문 <img src="/img/customer/arrow_black.svg" class="list_img">
+                        <img src="/img/customer/arrow_purple.svg" class="list_img2"></a></li>
+                    <li id="lists"><a href="/customer/mypage_qna1.html">1:1문의 <img src="/img/customer/arrow_black.svg" class="list_img">
+                        <img src="/img/customer/arrow_purple.svg" class="list_img2"></a></li>
+                    <li id="lists"><a href="#">진행중인 이벤트 <img src="/img/customer/arrow_black.svg" class="list_img">
+                        <img src="/img/customer/arrow_purple.svg" class="list_img2"></a></li>
+                    <li id="lists"><a href="/customer/eventList.html">쿠폰 등록 <img src="/img/customer/arrow_black.svg" class="list_img">
+                        <img src="/img/customer/arrow_purple.svg" class="list_img2"></a></li>
+                </ul>
+               
+            
+            </div>
+            <div class="box mypage_qna_write_wrap">
+                <h4 class="tit">1:1 문의</h4>
+              
+<!-- style="border-bottom: 1px solid #f1f1f1;" -->
+
+<table id="table_after" class="boardWrite2" width="100%">
+    <colgroup>
+    <col width="14%" style="text-align: right;">
+</colgroup>
+<tbody>
+    <tr>
+        <th class="input_txt">제목</th>
+        <td>
+            <select class="size" name="passwordCheckQuestion" id="passwordCheckQuestion" style="height: 20px;">
+              <option value="0">선택해주세요.</option>
+              <option value="1">배송지연/불만</option>
+              <option value="2">반품문의</option>
+              <option value="3">환불문의</option>
+              <option value="4">주문결제문의</option>
+              <option value="5">회원정보문의</option>
+              <option value="6">취소문의</option>
+              <option value="7">교환문의</option>
+              <option value="8">상품정보문의</option>
+            </select><br>
+            <input type="text" name="subject" style="width: 80%;" >
+          </td>
+        
+    </tr>
+    
+    <tr>
+        <th class="input_txt">주문번호</th>
+        <td>
+            <input type="text" name="ordno" style="width: 25%;">
+            <input onclick="order_open()" type="button" class="bhs_button" value="주문조회" >
+        </td>
+    </tr>
+    <tr>
+        <th class="input_txt">이메일</th>
+        <td><input type="text" name="email" value="test01@naver.com"
+            size="26" readonly class="read_only">
+            <span class="noline smalle" style="padding-left: 10px;">
+                <input type="checkbox" name="mailling">
+                <span style="font-size: 8pt;">답변수신을 이메일로 받겠습니다.</span>
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <th class="input_txt">문자메세지</th>
+        <td>
+            <input type="text" name="mobile[]" value="010-1111-2222" readonly
+            class="read_only">
+            <span class="noline smalle" style="padding-left: 10px;">
+                <input type="checkbox" name="sms">
+                <span style="font-size: 8pt;">답변수신을 문자메세지로 받겠습니다.</span>
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <th class="input_txt">내용</th>
+        <td class="edit_area" style="position: relative;">
+            <div class="qnaNotice"><br>
+                <strong>1:1 문의 작성 전 확인해주세요!</strong>
+                <strong>상품문의 작성 전 확인해주세요!</strong> <br><br>
+                <span><strong>반품/환불</strong></span><br>
+                <span>-제품 하자 혹은 이상으로 반품(환불)이 필요한 경우 사진과 함께 
+                    구체적인 내용을 남겨주세요.
+                </span>
+                <br><br>
+                <span><strong>주문취소</strong></span><br>
+                <span>-주문취소는 배송 단계별로 방법이 상이합니다.<br>
+                    -[배송준비중]이전까지는 주문취소가 가능합니다.<br>
+                    -[마이페이지 > 주문내역 상세페이지]에서 직접 취소 가능합니다.
+                </span>
+                <br><br>
+                <span>-[배송 준비중]부터는 취소가 불가하니, 반품으로 진행해주세요.(상품에 따
+                    라 일부는 반품이 불가할 수 있습니다.)<br>
+                    -주문상품의 부분 취소는 불가능 합니다. 전체 주문 취소후 재구매 해주세요.
+                    <br><br>
+                </span>
+                <br>
+                <span><strong>배송</strong></span><br>
+                <span>-주문 완료 후 취소는 불가능 합니다.<br>
+                    -배송일 및 배송시간 지정은 불가능 합니다.<br>
+                    <p style="color: rgb(95, 0, 128); font-size: 13px;">
+                        <b>※문의 내용에 개인정보가 저장되지 않도록 주의해주세요.</b></p>
+                </span>
+                <textarea name="contents" id="mypage_qna1_contents" cols="30" rows="10"
+                style="width: 100%; height: 474px;"></textarea>
+            </div>
+        </td>
+    </tr>
+        <tr>
+            <th class="input_txt">이미지</th>
+            <td>
+                <table id="table" cellpadding="0">
+                <tbody>
+                    <tr id="tr_0">
+                        <td width="20" style="text-align: center;"></td>
+                        <td width="100%">
+                            <input type="file" name="file[]" style="width: 50%;" class="linebg">
+                            
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table>
+                <tbody>
+                    <tr>
+                        <td height="2"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div width="100%" style="padding: 5px;" class="stxt">
+            - " 파일은 최대 5개까지 업로드가 지원됩니다. "<br>
+            </div>
+        </td>
+    </tr>
+
+</tbody>
+</table>
+
+    <!-- 퀵메뉴 -->
+    <!-- 최근 본 상품 구현 X -->
+    <div class="quickMenu">
+        <a href="#"><img src="/img/main/bnr_quick.jpg" alt="퀵배송안내" width="80" height="auto"></a>
+        <ul>
+            <li><a href="#">등급별 혜택</a></li>
+            <li><a href="#">레시피</a></li>
+            <li><a href="#">베스트 후기</a></li>
+        </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+    <!-- 푸터 -->
+    <div id="footer"></div>
+</body>
+
+</html>

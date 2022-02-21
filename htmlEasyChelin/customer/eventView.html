@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이지슐랭 :: 내일의 맛보기, 이지슐랭</title>
+
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
+        
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #333;
+}     
+        
+        .container {
+            position: relative;
+        }
+
+        .event_container {
+            margin-bottom: 3%;
+        }
+        /* 고객센터 박스 (aside)와 공지사항 박스(notice_wrap) */
+        .box {
+            /* border: 1px solid gray; */
+            margin-left: 20px;
+            margin-top: 50px;
+        }
+
+        /* 테이블 */
+        table {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+                        
+            
+            /* border-bottom: 1px solid rgb(0, 0, 0); */
+        }
+
+        th {
+            padding: 0 15px;
+            height: 50px;
+            border-top: 2px solid rgb(95, 0, 128);
+            border-bottom: 1px solid #f1f1f1;
+            color: #333;
+            font-size: 14px;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        td {
+            padding: 0 20px;
+            height: 50px;
+            color: #666;
+            font-size: 12px;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .eventView_bottom td{
+            /* height: 50px; */
+            border-bottom: 0;
+        }
+
+        /* 제목 정렬 */
+        .subject{
+            text-align: left;
+        }
+
+        /* 공지사항 내용 작성칸 폰트 */
+        .event_tr td p{
+            color: #666;
+            font-weight:500;
+            font-size: 14px;
+            line-height: 15px;
+        }
+       
+        .event_tit {
+            color: #666;
+            text-align: left;
+        }
+
+        .event_tit:hover{
+            color: rgb(95, 0, 128);
+            text-decoration: none;
+        }
+
+        .aside {
+            width: 20%;
+        }
+
+        .event_wrap {
+            width: 75%;
+            /* border-bottom: 1px solid black; */
+        }
+
+       /* 공지사항의 h4와 p태그  */
+       h3 {
+            padding-bottom: 30px;
+            font-size: 28px;
+            color: #333;
+        }
+       h4 {
+            display: inline-block;
+            padding-bottom: 35px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        p {
+            display: inline-block;
+            color: #999;
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: -.3px;
+            vertical-align: 3px;
+        }
+
+        
+
+        ol {
+            list-style: none;
+        }
+
+        /* 고객센터(list-menu) */
+        
+        .list-menu {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+        }
+
+        .none{
+            font-size: 14px;  
+            font-weight:500;     
+            border: 1px solid #f2f2f2;
+            color: #666;
+            height: 50px;
+            line-height: 50px;
+            width: 200px;
+            padding-left: 20px;
+        }
+        .none a{
+            font-size: 14px;   
+            font-weight:500;     
+            border: 1px solid #f2f2f2;
+            color: #666;
+            height: 50px;
+            line-height: 50px;
+            width: 200px;
+            padding-left: 20px;
+        }
+        .none:hover{
+            font-size: 14px;   
+            font-weight:500;
+            color: rgb(95, 0, 128); 
+            height: 50px;
+            line-height: 50px;
+            padding-left: 20px;
+            background-color: #fafafa;
+        }
+
+        .active {
+            font-size: 14px;   
+            font-weight:500;
+            width: 200px;
+            color: rgb(95, 0, 128); 
+            height: 50px;
+            line-height: 50px;
+            padding-left: 20px;
+            background-color: #fafafa;     
+            border: 1px solid #f2f2f2;
+        }
+        
+ /* list메뉴의 맨 아랫줄 빼고 겹치는 줄을 없애줌, collapse와 비슷한 기능 */
+        .list-menu li:nth-child(-n+4){
+            border-bottom: none;
+        }
+/* list-menu 오버시 보라색 화살표로 변함 */
+        .list-menu li:hover .list_img2 {
+            display: inline-block;
+            top: 14px;
+            
+        }
+        
+/* snb의 검정색 화살표 */
+        .list_img {
+            width: 20px;
+            height: 20px;
+            top: 14px;
+            position: absolute;
+            right: 10px;
+        }
+/* snb의 보라색 화살표 */
+        .list_img2 {
+            display: none;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            right: 10px;
+        }
+
+         /*pagination  */
+         .page {
+            margin-top: 10px;
+        }
+
+        .pagination {
+            list-style: none;
+            display: inline-block;
+            margin:0;
+            padding: 0;
+        }
+
+        /* 떨어진 요소들을 붙여주기위해  margin: 0 사용  */
+        .pagination li {
+            display: inline;
+            text-align: center;
+            margin: 0;
+        }
+       
+        .pagination a {
+            float: left;
+            display: block;
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: 12px;
+            text-decoration: none;
+            padding: 5px 11px;
+            color: #666;
+            border-top: 1px solid rgb(200, 200, 200);
+            border-bottom: 1px solid rgb(200, 200, 200);
+            border-right: 1px solid rgb(200, 200, 200);
+        }
+
+        .pagination a:hover {
+            color: rgb(95, 0, 128);
+            background-color: #f7f7f7;
+            text-decoration: none;
+        }
+        
+        #left_arrow1 {
+            border-left: 1px solid rgb(200, 200, 200);
+        }
+
+        /* search */
+        .event_search {
+            /* position: absolute; */
+            /* left: 75%; */
+            margin-top:0px;
+            margin-left:0px;
+            text-align:left;
+        }
+        .sch{
+            width: 130px;
+            height: 30px;
+            padding-left: 10px;
+        }
+        .event_inputText {
+            width: 200px;
+            height: 30px;
+            padding-left: 5px;
+            border: 1px solid #999;
+        }
+
+        .event_inputText:focus {
+            outline-style: none;
+            border: 2px solid black;
+            background-color: white;
+        }
+       
+        .event_searchBtn {
+            background-color: rgba(95, 0, 128, 0.7);
+            color: white;
+            position: relative;
+            top: 9px;
+            left: -2px;
+            opacity: 0.8;
+            height: 30px;
+        }
+
+        /* 공지사항View 버튼 스타일 */
+        .eventViewBtn {
+            position: relative;
+            display: inline-block;
+            width: 12%;
+            height: 30px;
+            line-height: 30px;
+            font-weight: 500;
+            border: 1px solid #999;
+            background-color: #fafafa;
+            border-radius: 3px;
+        }
+
+        .eventViewBtn a {
+            color: #333;
+        }
+
+        .eventViewBtn:hover .eventViewBtn a{
+            color: #333;
+            text-decoration: none;
+        }
+        /* 삼각형 */
+        .arrow{
+            width: 0;
+            height: 0;
+            border: 8px solid transparent;
+        }
+        .arrow_left{
+           position: absolute;
+           width: 12px;
+           height: 12px;
+           top: 9px;
+           left: 11px;
+        }
+        .arrow_right{
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            /* 이미지 좌우 반전 */
+            transform:rotate(90deg);
+            -moz-transform: scaleX(-1); 
+            -o-transform: scaleX(-1); 
+            -webkit-transform: scaleX(-1); 
+            transform: scaleX(-1);   
+            filter: FlipH;
+            -ms-filter: "FlipH";
+            top: 9px;
+            right: 11px;
+        }
+
+        .eventViewBtn_left a{
+            position: relative;
+        }
+
+        .eventViewBtn_right a{
+            position: relative;
+        }
+        .eventView_bottom {
+            text-align: center;
+        }
+        
+        .eventView_tr1 th{
+            margin-left: 200px;
+        }
+
+        .eventView_content p{
+            font-size: 13px;
+            color: #555;
+            line-height: 20px;
+        }
+        .eventView_content {
+            padding: 30px 20px;
+        }
+
+        .bg_gr {
+            background-color: #fafafa;
+        }
+       
+        .event_contentWrite {
+            padding: 5% 0px 0px 5%;
+            height: 15px;
+        }
+
+    </style>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#header').load("/header.html");
+            $('#footer').load("/footer.html");
+        });
+
+        $(document).ready(function () {
+            var currentPosition = parseInt($(".quickMenu").css("top"));
+            $(window).scroll(function () {
+                var position = $(window).scrollTop();
+                $(".quickMenu").stop().animate({ "top": (position / 1.5) + currentPosition + "px" }, 1500);
+            });
+        });
+    </script>
+
+
+    <!-- CSS -->
+    <link href="/css/main02.css" rel="stylesheet" type="text/css" />
+     <!-- CSS -->
+     <link href="/css/customer/customer_common.css" rel="stylesheet" type="text/css" />
+     <link href="/css/common.css" rel="stylesheet" type="text/css" />
+
+<body>
+    <!-- 헤더 -->
+    <div id="header"></div>
+
+    <!-- 메인 -->
+   
+    <div class="container event_container">
+        <div class="row">
+            <div class="box aside">
+                <h3>고객센터</h3>
+
+                <ul class="list-menu">
+                    <a href="/customer/noticeList.html">
+                    <li id="lists" class="none">공지사항 
+                        <img src="/img/customer/arrow_black.svg" class="list_img">
+                        <img src="/img/customer/arrow_purple.svg" class="list_img2">
+                    </li>
+                    </a>
+                    <a href="/customer/faqList.html">
+                        <li id="lists" class="none">자주하는 질문 
+                            <img src="/img/customer/arrow_black.svg" class="list_img">
+                            <img src="/img/customer/arrow_purple.svg" class="list_img2">
+                        </li>
+                    </a>
+                    <a href="/customer/mypage_qna1.html">
+                        <li id="lists" class="none">1:1문의 
+                            <img src="/img/customer/arrow_black.svg" class="list_img">
+                            <img src="/img/customer/arrow_purple.svg" class="list_img2">
+                        </li>
+                    </a>
+                    <a href="/customer/eventList.html">
+                        <li id="lists" class="active">진행중인 이벤트 
+                            <img src="/img/customer/arrow_black.svg" class="list_img">
+                            <img src="/img/customer/arrow_purple.svg" class="list_img2">
+                        </li>
+                    </a>
+                    <a href="/board/event1.html">
+                        <li id="lists" class="none">쿠폰 등록 
+                            <img src="/img/customer/arrow_black.svg" class="list_img">
+                            <img src="/img/customer/arrow_purple.svg" class="list_img2">
+                        </li>
+                    </a>
+                </ul>
+               
+            
+            </div>
+            <div class="box event_wrap">
+                <h4>진행중인 이벤트</h4>
+                <p>
+                    
+                </p><br>
+
+                <table class="eventView_tbl">
+                    
+                    <tr class="eventView_tr1">
+                        <th width="80%" colspan="2" class="bg_gr">리뷰 작성 이벤트!</th>
+                        <th class="bg_gr"></th>
+                        <th width="20%" class="bg_gr">2022-02-14</th>
+                    </tr>
+                    <tr class="eventView_tr2">
+                        <td width="12%" class="bg_gr">이벤트 기간</td>
+                        <td width="60%">2022-02-14 ~ 2022-02-16</td>
+                        <td width="10%" class="bg_gr">조회수</td>
+                        <td width="18%">100</td>
+                    </tr>
+                    <tr class="event_tr td">
+                        <td colspan="4" class="event_contentWrite">
+                            <!-- 이벤트 내용 작성칸 -->
+                            <p>가볍게 주기 좋은 초콜릿 부터,</p><br>
+                            <p>마음 가득 사랑은 전하는....</p><br>
+                            <br>
+                            <img src="https://img-cf.kurly.com/shop/data/event/44a5c215c623308530788e08f4bd2268.jpg" width="790px" height="300px" alt="진행중인 이벤트 사진">
+                            <br><br><br>
+                        </td>
+                    </tr >
+                  
+                   
+                </table>
+
+                <!-- sch/pagenation -->
+                <table class="eventView_bottom">
+                    <tr>
+                        <td>
+                            <button type="button" class="eventViewBtn" onclick="location.href='/customer/eventList.html';">목록</button>
+                            <button type="button" class="eventViewBtn" onclick="location.href='#';" style="visibility: hidden;">수정</button>
+                            <button type="button" class="eventViewBtn" onclick="location.href='#';" style="visibility: hidden;">삭제</button>
+                            <button type="button" class="eventViewBtn" onclick="location.href='#';" style="visibility: hidden;">글쓰기</button>
+                            <button type="button" class="eventViewBtn" onclick="location.href='#';" style="visibility: hidden;">확인</button>
+                            <button type="button" class="eventViewBtn" onclick="location.href='#';" style="visibility: hidden;">취소</button>
+                            <button type="button" class="eventViewBtn eventViewBtn_left" onclick="location.href='#';">
+                                <img src="/img/customer/arrow_left.png" alt="왼쪽화살표" class="arrow_left"> &nbsp;&nbsp;&nbsp;이전글
+                            </button>
+                            <button type="button" class="eventViewBtn eventViewBtn_right" onclick="location.href='#';">
+                                <img src="/img/customer/arrow_left.png" alt="왼쪽화살표" class="arrow_right"> 다음글&nbsp;&nbsp;&nbsp;
+                            </button>
+                           
+                        </td>
+                        
+                        
+                    
+                    </tr>
+                </table>              
+
+            </div>
+        </div>  
+    </div>
+
+
+    <!-- 퀵메뉴 -->
+    <!-- 최근 본 상품 구현 X -->
+    <div class="quickMenu">
+        <a href="#"><img src="/img/main/bnr_quick.jpg" alt="퀵배송안내" width="80" height="auto"></a>
+        <ul>
+            <li><a href="#">등급별 혜택</a></li>
+            <li><a href="#">레시피</a></li>
+            <li><a href="#">베스트 후기</a></li>
+        </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+    <!-- 푸터 -->
+    <div id="footer"></div>
+</body>
+
+</html>

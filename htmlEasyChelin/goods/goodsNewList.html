@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이지슐랭 :: 내일의 맛보기, 이지슐랭</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="js/jquery-2.2.4.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('#header').load("/header.html");
+            $('#quickMenu').load("/quickMenu.html");
+            $('#footer').load("/footer.html");
+        });
+    </script>
+
+    <!-- CSS -->
+    <link href="/css/goods/goods.css" rel="stylesheet" type="text/css" />
+    <link href="/css/quickMenu.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <!-- 헤더 -->
+    <div id="header"></div>
+
+    <!-- 메인 -->
+    <!-- 배너 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="goodsBnr">
+                    <img src="/img/goods/list/Bnr/newBnr.png" alt="신상품배너" width="1085" height="400">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 카테고리 2depth -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="goods1">
+                    <h3><b>신상품</b></h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- 퀵메뉴 -->
+        <div id="quickMenu"></div>
+
+        <!-- 검색조건 -->
+        <!-- 클릭시 색상변경 구현 X -->
+        <!-- 기능 구현 X -->
+        <div class="row">
+            <div class="col-12">
+                <div class="searchCriteria">
+                    <ul>
+                        <li><a href="#">추천순</a></li>
+                        <li>&nbsp;|&nbsp;</li>
+                        <li><a href="#">판매량순</a></li>
+                        <li>&nbsp;|&nbsp;</li>
+                        <li><a href="#">낮은 가격순</a></li>
+                        <li>&nbsp;|&nbsp;</li>
+                        <li><a href="#">높은 가격순</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 등록상품 -->
+        <!-- 장바구니 기능 구현 X -->
+        <div class="row">
+            <div class="col-12">
+                <div class="goods">
+                    <ul id="pro01">
+                        <li>
+                            <a href="/goods/goodsView.html">
+                                <img src="/img/goods/list/goods/goods309.jpg" width="250" height="auto" alt="그리츠 시그니처 램_양꼬치">
+                                <img class="addCart" src="/img/goods/cart.png" alt="장바구니에 담기">
+                                <p class="name">[라이필] 더카 콜라겐 (28일분)</p>
+                                <div class="pdSale">
+                                    <span class="sale">44%</span>
+                                    <span class="salePrice">33,040원</span>
+                                </div>
+                                <p class="price2">59,000원</p>
+                                <p class="pdSummary">속부터 차오르는 콜라겐 장벽</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/goods/goodsView.html">
+                                <img src="/img/goods/list/goods/goods109.jpg" width="250" height="auto" alt="밤고구마">
+                                <img class="addCart" src="/img/goods/cart.png" alt="장바구니에 담기">
+                                <p class="name">[기획특가] 밤고구마 5kg</p>
+                                <div class="pdSale">
+                                    <span class="sale">33%</span>
+                                    <span class="salePrice">19,900원</span>
+                                </div>
+                                <p class="price2">29,900원</p>
+                                <p class="pdSummary">든든하게 쟁여두는 고소한 고구마</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/goods/goodsView.html">
+                                <img src="/img/goods/list/goods/goods101.jpg" width="250" height="auto" alt="그리츠 시그니처 램_양꼬치">
+                                <img class="addCart" src="/img/goods/cart.png" alt="장바구니에 담기">
+                                <p class="name">[그리츠 시그니처 램] 양꼬치 400g</p>
+                                <p class="price">16,900원</p>
+                                <p class="pdSummary">100g 당 4,225원</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/goods/goodsView.html">
+                                <img src="/img/goods/list/goods/goods110.jpg" width="250" height="auto" alt="뉴오리진_멸균우유">
+                                <img class="addCart" src="/img/goods/cart.png" alt="장바구니에 담기">
+                                <p class="name">[뉴오리진] A2 멸균우유 1L</p>
+                                <p class="price">5,900원</p>
+                                <p class="pdSummary">속이 편한 프리미엄 멸균우유</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul id="pro02">
+                        <li>
+                            <a href="/goods/goodsView.html">
+                                <img src="/img/goods/list/goods/goods111.jpg" width="250" height="auto" alt="칠레산 블루베리">
+                                <img class="addCart" src="/img/goods/cart.png" alt="장바구니에 담기">
+                                <p class="name">칠레산 블루베리 125g</p>
+                                <div class="pdSale">
+                                    <span class="sale">10%</span>
+                                    <span class="salePrice">3,780원</span>
+                                </div>
+                                <p class="price2">4,200원</p>
+                                <p class="pdSummary">아삭하고 은은한 단맛이 일품인 베리류의 왕</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/goods/goodsView.html">
+                                <img src="/img/goods/list/goods/goods009.jpg" width="250" height="auto" alt="송쉐프_옛날 짜장면">
+                                <img class="addCart" src="/img/goods/cart.png" alt="장바구니에 담기">
+                                <p class="name">[송쉐프] 한우사골 옛날 짜장면 밀키트 (2인분)</p>
+                                <p class="price">10,500원</p>
+                                <p class="pdSummary">친숙하면서도 깊은 감칠맛</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/goods/goodsView.html">
+                                <img src="/img/goods/list/goods/goods010.jpg" width="250" height="auto" alt="하림_양념닭갈비">
+                                <img class="addCart" src="/img/goods/cart.png" alt="장바구니에 담기">
+                                <p class="name">[하림] 매콤한 양념닭갈비 700g</p>
+                                <p class="price">12,900원</p>
+                                <p class="pdSummary">입맛 사로잡는 매콤함</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/goods/goodsView.html">
+                                <img src="/img/goods/list/goods/goods301.jpg" width="250" height="auto" alt="종근당건강_루테인아스타잔틴">
+                                <img class="addCart" src="/img/goods/cart.png" alt="장바구니에 담기">
+                                <p class="name">[종근당건강] 아이클리어 루테인아스타잔틴 (30일분)</p>
+                                <div class="pdSale">
+                                    <span class="sale">17%</span>
+                                    <span class="salePrice">23,987원</span>
+                                </div>
+                                <p class="price2">28,900원</p>
+                                <p class="pdSummary">눈 피로와 노화를 동시에 케어하는</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 페이지네이션 -->
+                <!-- 기능 구현 X -->
+                <div class="pagination">
+                    <a href="#"><<</a>
+                    <a href="#"><</a>
+                    <a href="#">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#">></a>
+                    <a href="#">>></a>
+                </div>
+            
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 푸터 -->
+    <div id="footer"></div>
+</body>
+</html>

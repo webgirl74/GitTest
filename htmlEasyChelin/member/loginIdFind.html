@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>아이디찾기</title>
+
+  <!-- CSS -->
+  <link href="/css/common_popup.css" rel="stylesheet" type="text/css" />
+  <link href="/css/member/idFind.css" rel="stylesheet" type="text/css" />
+
+  <script>
+    function callSub() {
+      location.href="/member/loginIdFindOk.html";
+      return false;
+    }
+  </script>
+  
+</head>
+
+<body>
+
+  <div class="wrap">
+    <div class="popupTitle">아이디찾기</div>
+    <div class="comment">가입시 등록하신 정보를 입력해 주세요!</div>
+    <div>
+      <table>
+        <form action="#">
+          <tr>
+            <td><label for="idfind_name">이름</label></td>
+            <td><input type="text" name="" id="idfind_name" value="이름을 입력해주세요." onclick="this.value='';" /></td>
+          </tr>
+          <tr>
+            <td><label for="idfind_email">이메일</label></td>
+            <td><input type="text" name="" id="idfind_email" value="이메일을 입력해주세요." onclick="this.value='';" /></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input type="image" src="/img/member/b_ok.png" alt="" value="submit" onclick="return callSub();">
+            </td>
+          </tr>
+        </form>
+      </table>
+    </div>
+  </div>
+
+</body>
+</html>

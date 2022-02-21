@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이지슐랭 :: 내일의 맛보기, 이지슐랭</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="js/jquery-2.2.4.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('#header').load("/header.html");
+            $('#quickMenu').load("/quickMenu.html");
+            $('#footer').load("/footer.html");
+        });
+    </script>
+
+    <!-- CSS -->
+    <link href="/css/goods/goods.css" rel="stylesheet" type="text/css" />
+    <link href="/css/quickMenu.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <!-- 헤더 -->
+    <div id="header"></div>
+
+    <!-- 메인 -->
+
+    <br>
+    <br>
+
+    <!-- 카테고리 2depth -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="goods1">
+                    <h3><b>베스트</b></h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- 퀵메뉴 -->
+        <div id="quickMenu"></div>
+        
+        <!-- 검색조건 -->
+        <!-- 클릭시 색상변경 구현 X -->
+        <!-- 기능 구현 X -->
+        <div class="row">
+            <div class="col-12">
+                <div class="searchCriteria">
+                    <ul>
+                        <li><a href="#">추천순</a></li>
+                        <li>&nbsp;|&nbsp;</li>
+                        <li><a href="#">판매량순</a></li>
+                        <li>&nbsp;|&nbsp;</li>
+                        <li><a href="#">낮은 가격순</a></li>
+                        <li>&nbsp;|&nbsp;</li>
+                        <li><a href="#">높은 가격순</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 등록상품 -->
+        <!-- 장바구니 기능 구현 X -->
+        <div class="row">
+            <div class="col-12">
+                <div class="goods">
+                    <ul id="pro01">
+                        <li>
+                            <a href="/goods/goodsView.html">
+                                <img src="/img/goods/list/goods/goods112.jpg" width="250" height="auto" alt="스윗밸런스_오늘의 샐러드">
+                                <img class="addCart" src="/img/goods/cart.png" alt="장바구니에 담기">
+                                <p class="name">[스윗밸런스] 오늘의 샐러드 6종</p>
+                                <div class="pdSale">
+                                    <span class="sale">15%</span>
+                                    <span class="salePrice">4,165원</span>
+                                </div>
+                                <p class="price2">4,900원</p>
+                                <p class="pdSummary">다채로운 토핑을 얹은 샐러드</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/goods/goodsView.html">
+                                <img src="/img/goods/list/goods/goods209.jpg" width="250" height="auto" alt="굽네_닭가슴살 만두">
+                                <img class="addCart" src="/img/goods/cart.png" alt="장바구니에 담기">
+                                <p class="name">[굽네] 닭가슴살 만두 3종</p>
+                                <p class="price">2,300원</p>
+                                <p class="pdSummary">닭가슴살로 만든 이색 만두 (갈비맛 추가)</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/goods/goodsView.html">
+                                <img src="/img/goods/list/goods/goods108.jpg" width="250" height="auto" alt="YOZM_플레인 그릭요거트">
+                                <img class="addCart" src="/img/goods/cart.png" alt="장바구니에 담기">
+                                <p class="name">[YOZM] 플레인 그릭요거트 2종</p>
+                                <p class="price">3,900원</p>
+                                <p class="pdSummary">꾸덕함이 남다른, 정통 그릭요거트</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/goods/goodsView.html">
+                                <img src="/img/goods/list/goods/goods113.jpg" width="250" height="auto" alt="일상미소_육전용">
+                                <img class="addCart" src="/img/goods/cart.png" alt="장바구니에 담기">
+                                <p class="name">[일상미소] 육전용 200g (냉동)</p>
+                                <p class="price">8,800원</p>
+                                <p class="pdSummary">100g 당 4,400원</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul id="pro02">
+                        <li>
+                            <a href="/goods/goodsView.html">
+                                <img src="/img/goods/list/goods/goods001.jpg" width="250" height="auto" alt="목란_짬뽕">
+                                <img class="addCart" src="/img/goods/cart.png" alt="장바구니에 담기">
+                                <p class="name">[이연복의 목란] 짬뽕 2인분</p>
+                                <p class="price">13,200원</p>
+                                <p class="pdSummary">매콤한 불맛이 담긴 한 그릇</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/goods/goodsView.html">
+                                <img src="/img/goods/list/goods/goods114.jpg" width="250" height="auto" alt="서울우유_우유 1.8L">
+                                <img class="addCart" src="/img/goods/cart.png" alt="장바구니에 담기">
+                                <p class="name">[서울우유] 나 100% 우유 1.8L</p>
+                                <p class="price">4,990원</p>
+                                <p class="pdSummary">서울우유의 믿을 수 있는 품질! 든든한 용량 1등급 우유</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/goods/goodsView.html">
+                                <img src="/img/goods/list/goods/goods207.jpg" width="250" height="auto" alt="남향푸드또띠아_브리또">
+                                <img class="addCart" src="/img/goods/cart.png" alt="장바구니에 담기">
+                                <p class="name">[남향푸드또띠아] 간편 간식 브리또 10종</p>
+                                <div class="pdSale">
+                                    <span class="sale">7%</span>
+                                    <span class="salePrice">2,960원</span>
+                                </div>
+                                <p class="price2">3,200원</p>
+                                <p class="pdSummary">가볍고 든든한 멕시칸 푸드</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/goods/goodsView.html">
+                                <img src="/img/goods/list/goods/goods210.jpg" width="250" height="auto" alt="더오담_돈까스">
+                                <img class="addCart" src="/img/goods/cart.png" alt="장바구니에 담기">
+                                <p class="name">[더오담] 에어프라이어 돈까스 4종</p>
+                                <div class="pdSale">
+                                    <span class="sale">10%</span>
+                                    <span class="salePrice">2,610원</span>
+                                </div>
+                                <p class="price2">2,900원</p>
+                                <p class="pdSummary">(신제품 출시) 골라먹는 재미! 에어프라이로 간편하게</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 페이지네이션 -->
+                <!-- 기능 구현 X -->
+                <div class="pagination">
+                    <a href="#">&lt;&lt;</a>
+                    <a href="#">&lt;</a>
+                    <a href="#">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#">&gt;</a>
+                    <a href="#">&gt;&gt;</a>
+                </div>
+
+            
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 푸터 -->
+    <div id="footer"></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<script>
+  // 회원등급안내팝업
+  function callGrade() {
+    window.open('/mypage/memberGrade.html', '_blank', 'width=450, height=330'); 
+    return false;
+  }
+</script>
+
+<div class="col-12 myInfo">
+  <div class="container myInfo_wrap">
+    <div class="row">
+      <div class="myInfoBox">
+        <img src="/img/mypage/grade_01.png"> 
+        <span class="myInfo_name">홍길동님</span>
+        <input type="image" src="/img/mypage/b_grade.png" onclick="return callGrade();">
+      </div>
+      <div class="myInfoBox">
+        <img src="/img/mypage/myInfo_point.png"><br><br><br>
+        <span class="myInfoPoint">100원</span>
+        <p>소멸예정 0원</p>
+      </div>
+      <div class="myInfoBox">
+        <img src="/img/mypage/myInfo_cupon.png"><br><br><br>
+        <span class="myInfoPoint"></span>
+        <p></p>
+      </div>
+      <div><img src="/img/mypage/banner.png"></div>
+    </div>
+  </div>
+</div>

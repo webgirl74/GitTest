@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이지슐랭 :: 내일의 맛보기, 이지슐랭</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="/js/accordion.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('#header').load("/header.html");
+            $('#quickMenu').load("/quickMenu.html");
+            $('#myInfo').load("/mypage/myInfo.html");
+            $('#LeftMenu').load("/mypage/LeftMenu.html");
+            $('#footer').load("/footer.html");
+        });
+    </script>
+
+    <!-- CSS -->   
+    <link href="/css/quickMenu.css" rel="stylesheet" type="text/css" />
+    <link href="/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="/css/mypage/mypageCommon.css" rel="stylesheet" type="text/css" />
+    <link href="/css/mypage/qna.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <!-- 헤더 -->
+    <div id="header"></div>
+
+    <!-- 메인 -->
+
+    <!-- myInfo -->
+    <div id="myInfo"></div>
+    <!-- // myInfo -->
+   
+    <div class="container">
+      <div class="row">
+        <!-- left Menu -->
+        <div class="box aside">
+          <div class="bbsTitle">고객센터</div>
+          <div id="LeftMenu"></div>
+        </div>
+        <!-- // left Menu -->
+
+        <!-- right -->
+        <div class="box bbs_wrap">
+          <div class="sTitle">1:1 문의</div>
+          <table id="accordion">
+            <col width="10%">
+            <col width="15%">
+            <col>
+            <col width="15%">
+            <tr>
+              <th>번호</th>
+              <th>카테고리</th>
+              <th>제목</th>
+              <th>작성일</th>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>[결제문의]</td>
+              <td class="accodion_tit">다른 카드로 결제변경 가능한가요?  </td>
+              <td>2022-02-03</td>
+            </tr>
+            <tr>
+              <td colspan="2"></td>
+              <td colspan="2" class="faq_txt">
+                주문한 상품을 다른 카드로 결제하고 싶은데…가능한가요?<br>
+                <span>
+                  <a href=""><img src="/img/mypage/b_bbs_modify.png"></a>
+                  <a href=""><img src="/img/mypage/b_bbs_del.png"></a>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>[결제문의]</td>
+              <td class="accodion_tit">다른 카드로 결제변경 가능한가요?</td>
+              <td>2022-02-01</td>
+            </tr>
+            <tr>
+              <td colspan="2"></td>
+              <td colspan="2" class="faq_txt">
+                주문한 상품을 다른 카드로 결제하고 싶은데…가능한가요?<br>
+                <span>
+                  <a href=""><img src="/img/mypage/b_bbs_modify.png"></a>
+                  <a href=""><img src="/img/mypage/b_bbs_del.png"></a>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td></td>
+              <td class="accodion_tit"><img src="/img/mypage/i_reply.png" class="reply">안녕하세요 고객님, 답변 드립니다.</td>
+              <td>2022-02-02</td>
+            </tr>
+            <tr>
+              <td colspan="2"></td>
+              <td colspan="2" class="faq_txt">
+                안녕하세요 고객님, 답변 드립니다. 
+              </td>
+            </tr>
+          </table>
+
+          <!-- sch/pagenation -->
+          <table class="bottom">
+            <col>
+            <col width="222px">
+            <tr>
+              <td>
+                <div class="pagination">
+                  <a href="#"><<</a>
+                  <a href="#"><</a>
+                  <a href="#">1</a>
+                  <a href="#">2</a>
+                  <a href="#">3</a>
+                  <a href="#">4</a>
+                  <a href="#">5</a>
+                  <a href="#">6</a>
+                  <a href="#">></a>
+                  <a href="#">>></a>
+                </div>
+              </td>
+              <td>
+                <a href="/mypage/qnaWrite.html"><img src="/img/mypage/b_qna_write.png"></a></td>
+            </tr>
+          </table> 
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 푸터 -->
+    <div id="footer"></div>
+</body>
+
+</html>

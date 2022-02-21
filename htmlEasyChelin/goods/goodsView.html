@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이지슐랭 :: 내일의 맛보기, 이지슐랭</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+            $('#header').load("/header.html");
+            $('#quickMenu').load("/quickMenu.html");
+            $('#footer').load("/footer.html");
+        });
+    </script>
+
+    <!-- 퀵메뉴 스크롤 -->
+    <script>
+        $(document).ready(function(){
+        var currentPosition = parseInt($(".quickMenu").css("top"));
+            $(window).scroll(function() {
+                var position = $(window).scrollTop(); 
+                $(".quickMenu").stop().animate({"top":(position*1.005)+currentPosition+"px"},1500);
+            });
+        });
+    </script>
+
+    <!-- 적립금 ? 열고 닫기 -->
+    <script>
+        $(document).ready(function(){
+            $("#questionBtn").click(function(){
+                $(".questionPop").toggle();
+            });
+
+            $("#popClose").click(function(){
+                $(".questionPop").hide();
+            });
+        });
+    </script>
+
+    <!-- 수량 up & down -->
+    <script>
+     
+    </script>
+
+    <!-- 상품옵션 -->
+    <!-- 여러번 X -->
+    <!-- height 조절 X -->
+    <!-- 너무 더러워서 정리예정 -->
+    <script>
+        $(document).ready(function(){
+           
+            $('#goodsOptBtn').click(function(){
+                $('.goodsOpt').toggle();
+            });
+
+            $('.goodsOpt li:nth-of-type(1)').click(function(){
+                $('.goodsOpt').hide();
+                $('.goodsOpt2 li:nth-of-type(1)').show();
+            });
+
+            $('.goodsOpt li:nth-of-type(2)').click(function(){
+                $('.goodsOpt').hide();
+                $('.goodsOpt2 li:nth-of-type(2)').show();
+            });
+
+            $('.goodsOpt li:nth-of-type(3)').click(function(){
+                $('.goodsOpt').hide();
+                $('.goodsOpt2 li:nth-of-type(3)').show();
+            });
+
+            $('.goodsOpt li:nth-of-type(4)').click(function(){
+                $('.goodsOpt').hide();
+                $('.goodsOpt2 li:nth-of-type(4)').show();
+            });
+
+            $('.goodsOpt2 li:nth-of-type(1) .liClose').click(function(){
+                $('.goodsOpt2 li:nth-of-type(1)').hide();
+            });
+
+            $('.goodsOpt2 li:nth-of-type(2) .liClose').click(function(){
+                $('.goodsOpt2 li:nth-of-type(2)').hide();
+            });
+
+            $('.goodsOpt2 li:nth-of-type(3) .liClose').click(function(){
+                $('.goodsOpt2 li:nth-of-type(3)').hide();
+            });
+
+            $('.goodsOpt2 li:nth-of-type(4) .liClose').click(function(){
+                $('.goodsOpt2 li:nth-of-type(4)').hide();
+            });
+            
+        });
+    </script>
+
+    <!-- 탭메뉴 -->
+    <script>
+        $(document).ready(function(){
+    
+            $('ul.tabs li').click(function(){
+                var tab_id = $(this).attr('data-tab');
+
+                $('ul.tabs li').removeClass('current');
+                $('.tab-content').removeClass('current');
+
+                $(this).addClass('current');
+                $("#"+tab_id).addClass('current');
+            })
+        })
+    </script>
+
+    <!-- 탭메뉴 스크롤 -->
+
+
+    <!-- review 아코디언 -->
+    <script>
+        $(document).ready(function(){
+    
+            $("#review tr:odd").addClass("odd");
+            $("#review tr:not(.odd)").hide(); 
+            $("#review tr:first-child").show(); //열머리글 보여주기
+    
+            $("#review tr.odd").click(function(){
+                $("tbody tr.active").hide();
+                
+                if(!$(this).next("tr").hasClass('active')){
+                    $("tbody tr.active").removeClass('active');
+                    $(this).next("tr").toggle();
+                    $(this).next("tr").addClass('active');
+                    $(this).find(".arrow").toggleClass("up");
+                } else {
+                    $("tbody tr.active").removeClass('active');
+                }
+            });
+        });
+    </script>
+
+    <!-- qna 아코디언 -->
+    <script>
+        $(document).ready(function(){
+    
+            $("#qna tr:odd").addClass("odd");
+            $("#qna tr:not(.odd)").hide(); 
+            $("#qna tr:first-child").show(); //열머리글 보여주기
+    
+            $("#qna tr.odd").click(function(){
+                $("tbody tr.active").hide();
+                
+                if(!$(this).next("tr").hasClass('active')){
+                    $("tbody tr.active").removeClass('active');
+                    $(this).next("tr").toggle();
+                    $(this).next("tr").addClass('active');
+                    $(this).find(".arrow").toggleClass("up");
+                } else {
+                    $("tbody tr.active").removeClass('active');
+                }
+            });
+        });
+    </script>
+
+    <!-- CSS -->
+    <link href="/css/goods/goodsView.css" rel="stylesheet" type="text/css" />
+    <link href="/css/quickMenu.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+     <!-- 헤더 -->
+    <div id="header"></div>
+
+    <!-- 퀵메뉴 -->
+    <!-- 최근 본 상품 구현 X -->
+    <div class="quickMenu">
+        <a href="#"><img src="/img/goods/bnr_quick.jpg" alt="퀵배송안내" width="80" height="auto"></a>
+        <ul>
+            <li><a href="#">등급별 혜택</a></li> 
+            <li><a href="#">이벤트</a></li> 
+            <li><a href="#">뭘로할까여~?</a></li>
+        </ul>
+    </div>
+    
+    <!-- 메인 -->
+    <div class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="detail">
+                        <div class="section1">
+                            <img src="/img/goods/list/goods/goods112.jpg" width="450" height="auto" alt="스윗밸런스_오늘의 샐러드">
+                        </div>
+                        <div class="section2">
+                            <p class="name">[스윗밸런스] 오늘의 샐러드 6종</p>
+                            <p class="summary">다채로운 토핑을 얹은 샐러드</p>
+                            <div class="properties">
+                                <div><img src="/img/goods/view/goods_i_new.png" alt="신상품"></div> 
+                                <div><img src="/img/goods/view/goods_i_best.png" alt="베스트"></div>
+                                <div><img src="/img/goods/view/goods_i_sale.png" alt="할인"></div>
+                                <div><img src="/img/goods/view/goods_i_soldOut.png" alt="품절"></div>
+                            </div>
+
+                            <!-- point question popup -->
+                            <div class="questionPop">
+                                <b>적립금은 어떻게 이루어져있나요?</b>
+                                <br><br>
+                                일반회원 : 상품 금액의 0.05% 적립<br>
+                                VIP회원 : 상품 금액의 0.1% 적립<br>
+                                <img id="popClose" src="/img/goods/view/close.png" alt="팝업닫기" width="15" height="15">
+                            </div>
+
+                            <table>
+                                <tr class="price">
+                                    <td class="title">판매 가격</td>
+                                    <td class="content"><del>4,900원</del> &nbsp; → &nbsp; 4,165원</td>
+                                </tr>
+                                <tr class="point">
+                                    <td class="title">적립금</td>
+                                    <td class="content">
+                                        <span>410원 적립</span>
+                                        <span><img id="questionBtn" src="/img/goods/view/question.png" alt="적립금은 어떻게?" style="cursor: pointer;"></span>
+                                    </td>
+                                </tr>
+                                <tr class="weight">
+                                    <td class="title">중량/용량</td>
+                                    <td class="content">1통(240g)</td>
+                                </tr>
+                                <tr class="item1">
+                                    <td class="title">항목명 1</td>
+                                    <td class="content">내용</td>
+                                </tr>
+                                <tr class="item2">
+                                    <td class="title">항목명 2</td>
+                                    <td class="content">내용</td>
+                                </tr>
+                                <tr class="allergy">
+                                    <td class="title">알레르기정보</td>
+                                    <td class="content">
+                                        상품 상세 정보란 참고
+                                    </td>
+                                </tr>
+                                <!-- 단일상품
+                                <tr class="count">
+                                    <td class="title">수량</td>
+                                    <td class="content">
+                                        <span>
+                                            <button type="button" class="countDBtn"><img src="/img/goods/view/ico_minus_on.png" alt="수량내리기"></button>
+                                            <input type="text" readonly="readonly" class="countInput" value="1">
+                                            <button type="button" class="countUBtn"><img src="/img/goods/view/ico_plus_on.png" alt="수량올리기"></button>    
+                                        </sapn>
+                                    </td>
+                                </tr> -->
+                                
+                                <!-- 다량상품 -->
+                                <tr class="option">
+                                    <td class="title">상품선택</td>
+                                    <td class="content">
+                                        <ul>
+                                            <li class="goodsOptList">
+                                                <div>
+                                                    <button id="goodsOptBtn">
+                                                        <span>상품 선택</span>
+                                                        <span><img src="/img/goods/view/dropdown_arrow.png" width="10" height="10"></span>
+                                                    </button>
+                                                </div>
+                                                <ul class="goodsOpt">
+                                                    <li>
+                                                        <a href="#none">
+                                                            <span>상품이름1</span>
+                                                            <span>상품가격1</span>
+                                                        </a>
+                                                    </li>
+                                                    <br>
+                                                    <li>
+                                                        <a href="#none">
+                                                            <span>상품이름2</span>
+                                                            <span>상품가격2</span>
+                                                        </a>
+                                                    </li>
+                                                    <br>
+                                                    <li>
+                                                        <a href="#none">
+                                                            <span>상품이름3</span>
+                                                            <span>상품가격3</span>
+                                                        </a>
+                                                    </li>
+                                                    <br>
+                                                    <li>
+                                                        <a href="#none">
+                                                            <span>상품이름4</span>
+                                                            <span>상품가격4</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <ul class="goodsOpt2">
+                                                    <li>
+                                                        <div class="selectedOpt">
+                                                            <span>상품이름1</span>
+                                                            <span><img class="liClose" src="/img/goods/view/close.png" width="15" height="15"></span>
+                                                        </div>
+                                                        <div class="selectedOpt2">
+                                                            <span>                                            
+                                                                <button type="button" class="countDBtn"><img src="/img/goods/view/ico_minus_on.png" alt="수량내리기"></button>
+                                                                <input type="text" readonly="readonly" class="countInput" value="1">
+                                                                <button type="button" class="countUBtn"><img src="/img/goods/view/ico_plus_on.png" alt="수량올리기"></button>    
+                                                            </span>
+                                                            <span>상품가격1</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="selectedOpt">
+                                                            <span>상품이름2</span>
+                                                            <span><img class="liClose" src="/img/goods/view/close.png" width="15" height="15"></span>
+                                                        </div>
+                                                        <div class="selectedOpt2">
+                                                            <span>                                            
+                                                                <button type="button" class="countDBtn"><img src="/img/goods/view/ico_minus_on.png" alt="수량내리기"></button>
+                                                                <input type="text" readonly="readonly" class="countInput" value="1">
+                                                                <button type="button" class="countUBtn"><img src="/img/goods/view/ico_plus_on.png" alt="수량올리기"></button>    
+                                                            </span>
+                                                            <span>상품가격2</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="selectedOpt">
+                                                            <span>상품이름3</span>
+                                                            <span><img class="liClose" src="/img/goods/view/close.png" width="15" height="15"></span>
+                                                        </div>
+                                                        <div class="selectedOpt2">
+                                                            <span>                                            
+                                                                <button type="button" class="countDBtn"><img src="/img/goods/view/ico_minus_on.png" alt="수량내리기"></button>
+                                                                <input type="text" readonly="readonly" class="countInput" value="1">
+                                                                <button type="button" class="countUBtn"><img src="/img/goods/view/ico_plus_on.png" alt="수량올리기"></button>    
+                                                            </span>
+                                                            <span>상품가격3</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="selectedOpt">
+                                                            <span>상품이름4</span>
+                                                            <span><img class="liClose" src="/img/goods/view/close.png" width="15" height="15"></span>
+                                                        </div>
+                                                        <div class="selectedOpt2">
+                                                            <span>                                            
+                                                                <button type="button" class="countDBtn"><img src="/img/goods/view/ico_minus_on.png" alt="수량내리기"></button>
+                                                                <input type="text" readonly="readonly" class="countInput" value="1">
+                                                                <button type="button" class="countUBtn"><img src="/img/goods/view/ico_plus_on.png" alt="수량올리기"></button>    
+                                                            </span>
+                                                            <span>상품가격4</span>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>    
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr class="delivery">
+                                    <td class="title">배송비</td>
+                                    <td class="content">3,000원 (도서산간지역 5,000원)</td>
+                                </tr>
+                                <tr class="totalPrice">
+                                    <td class="title">총 결제금액 :</td>
+                                    <td class="content">
+                                        <p>7,900원</p>
+                                        <p>로그인 후, 적립금과 할인혜택을 누려보세요!</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <button class="putInCart">장바구니 담기</button>
+                                        <button class="order">주문하기</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="section3">
+                        <ul class="tabs">
+                            <a href="#goodsIntro"><li id="introTab" class="tab-link current" data-tab="tab-1">상품 상세 정보</li></a> 
+                            <a href="#goodsReview"><li id="reviewTab" class="tab-link" data-tab="tab-2">상품평</li></a>
+                            <a href="#goodsQna"><li id="qnaTab" class="tab-link" data-tab="tab-3">상품문의</li></a>
+                            <a href="#goodsDelivery"><li id="deliveryTab" class="tab-link" data-tab="tab-4">배송안내</li></a>
+                            <a href="#goodsReturn"><li id="returnTab" class="tab-link" data-tab="tab-5">교환 및 반품</li></a>
+                        </ul>
+                        
+                        <!-- 상품 상세 정보 -->
+                        <div id="tab-1" class="tab-content current">
+                            <div class="seciton3_1" id="goodsIntro">
+                                <div class="goodsIntro">
+                                    <div class="pic">
+                                        <img src="/img/goods/view/section3_1/intro.jpg">
+                                    </div>
+                                    <div class="intro">
+                                        <h3>
+                                            <small>다채로운 토핑을 얹은 샐러드</small>
+                                            <br>
+                                            <b>[스윗밸런스]</b>
+                                            <br>
+                                            <b>오늘의 샐러드 6종</b>
+                                        </h3>
+                                        <hr>
+                                        <div>
+                                            매일 협력 농가에서 공수해오는 신선한 잎채소로 담은 스윗밸런스의 오늘의 샐러드를 만나 보세요. 가볍게 먹기 좋은 부드러운 채소를 엄선했어요. 수십번의 샘플링을 거쳐 완성한 특제 드레싱을 담아 채소의 매력이 더욱 살아날 수 있도록 했고요. 새우, 닭가슴살, 고구마 샐러드 등의 토핑을 얹었으니 영양소를 다양하게 섭취할 수 있을 뿐만 아니라 든든한 한 끼로도 손색이 없을 거예요.
+                                        </div>
+                                    </div>
+                                    <div class="goodsPoint">
+                                        <h3 class="subTitle">EasyChelin's Check Point</h3>
+                                        <div>
+                                            <img class="introImg" src="/img/goods/view/section3_1/point.jpg">
+                                        </div>
+                                    </div>
+                                    <div class="goodsPick">
+                                        <h3 class="subTitle">EasyChelin's Pick</h3>
+                                        <div class="pick01">
+                                            <div class="pick01_1">
+                                                <img class="introImg" src="/img/goods/view/section3_1/pick01.jpg">
+                                                <div class="pickText">
+                                                    <h4>01. 쉬림프 에그 샐러드</h4>
+                                                    <p>
+                                                        <b>・중량</b> : 1통(240g)
+                                                        <br>
+                                                        <b>・구성</b> : ①샐러드, ②드레싱, ③포크
+                                                        <br>
+                                                        <b>・칼로리</b> : 260Kcal
+                                                        <br>
+                                                        <b>・채소</b> : 상추, 적근대, 케일, 라디치오, 치커리
+                                                        <br>
+                                                        <b>・토핑</b> : 새우, 메추리알, 방울토마토, 에그스프레드, 강낭콩, 병아리콩, 스위트콘, 당근채
+                                                        <br>
+                                                        <b>・드레싱</b> : 이탈리안
+                                                    </p>
+                                                </div>
+                                                <div class="pickImg">
+                                                    <img class="introImg" src="/img/goods/view/section3_1/pick01_1.jpg">
+                                                </div>
+                                            </div>
+                                            <div class="pick01_2">
+                                                <div class="pickText">
+                                                    <h4>01. 쉬림프 에그 샐러드</h4>
+                                                    <p>
+                                                        <b>・중량</b> : 1통(240g)
+                                                        <br>
+                                                        <b>・구성</b> : ①샐러드, ②드레싱, ③포크
+                                                        <br>
+                                                        <b>・칼로리</b> : 260Kcal
+                                                        <br>
+                                                        <b>・채소</b> : 상추, 적근대, 케일, 라디치오, 치커리
+                                                        <br>
+                                                        <b>・토핑</b> : 새우, 메추리알, 방울토마토, 에그스프레드, 강낭콩, 병아리콩, 스위트콘, 당근채
+                                                        <br>
+                                                        <b>・드레싱</b> : 이탈리안
+                                                    </p>
+                                                </div>
+                                                <div class="pickImg">
+                                                    <img class="introImg" src="/img/goods/view/section3_1/pick01_2.jpg">
+                                                </div>
+                                            </div>
+                                            <div class="pick01_3">
+                                                <div class="pickText">
+                                                    <h4>01. 쉬림프 에그 샐러드</h4>
+                                                    <p>
+                                                        <b>・중량</b> : 1통(240g)
+                                                        <br>
+                                                        <b>・구성</b> : ①샐러드, ②드레싱, ③포크
+                                                        <br>
+                                                        <b>・칼로리</b> : 260Kcal
+                                                        <br>
+                                                        <b>・채소</b> : 상추, 적근대, 케일, 라디치오, 치커리
+                                                        <br>
+                                                        <b>・토핑</b> : 새우, 메추리알, 방울토마토, 에그스프레드, 강낭콩, 병아리콩, 스위트콘, 당근채
+                                                        <br>
+                                                        <b>・드레싱</b> : 이탈리안
+                                                    </p>
+                                                </div>
+                                                <div class="pickImg">
+                                                    <img class="introImg" src="/img/goods/view/section3_1/pick01_3.jpg">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pick02">
+                                            <div class="pick02_1">
+                                                <img class="introImg" src="/img/goods/view/section3_1/pick02.jpg">
+                                                <div class="pickText">
+                                                    <h4>01. 쉬림프 에그 샐러드</h4>
+                                                    <p>
+                                                        <b>・중량</b> : 1통(240g)
+                                                        <br>
+                                                        <b>・구성</b> : ①샐러드, ②드레싱, ③포크
+                                                        <br>
+                                                        <b>・칼로리</b> : 260Kcal
+                                                        <br>
+                                                        <b>・채소</b> : 상추, 적근대, 케일, 라디치오, 치커리
+                                                        <br>
+                                                        <b>・토핑</b> : 새우, 메추리알, 방울토마토, 에그스프레드, 강낭콩, 병아리콩, 스위트콘, 당근채
+                                                        <br>
+                                                        <b>・드레싱</b> : 이탈리안
+                                                    </p>
+                                                </div>
+                                                <div class="pickImg">
+                                                    <img class="introImg" src="/img/goods/view/section3_1/pick02_1.jpg">
+                                                </div>
+                                            </div>
+                                            <div class="pick02_2">
+                                                <div class="pickText">
+                                                    <h4>01. 쉬림프 에그 샐러드</h4>
+                                                    <p>
+                                                        <b>・중량</b> : 1통(240g)
+                                                        <br>
+                                                        <b>・구성</b> : ①샐러드, ②드레싱, ③포크
+                                                        <br>
+                                                        <b>・칼로리</b> : 260Kcal
+                                                        <br>
+                                                        <b>・채소</b> : 상추, 적근대, 케일, 라디치오, 치커리
+                                                        <br>
+                                                        <b>・토핑</b> : 새우, 메추리알, 방울토마토, 에그스프레드, 강낭콩, 병아리콩, 스위트콘, 당근채
+                                                        <br>
+                                                        <b>・드레싱</b> : 이탈리안
+                                                    </p>
+                                                </div>
+                                                <div class="pickImg">
+                                                    <img class="introImg" src="/img/goods/view/section3_1/pick02_2.jpg">
+                                                </div>
+                                            </div>
+                                            <div class="pick02_3">
+                                                <div class="pickText">
+                                                    <h4>01. 쉬림프 에그 샐러드</h4>
+                                                    <p>
+                                                        <b>・중량</b> : 1통(240g)
+                                                        <br>
+                                                        <b>・구성</b> : ①샐러드, ②드레싱, ③포크
+                                                        <br>
+                                                        <b>・칼로리</b> : 260Kcal
+                                                        <br>
+                                                        <b>・채소</b> : 상추, 적근대, 케일, 라디치오, 치커리
+                                                        <br>
+                                                        <b>・토핑</b> : 새우, 메추리알, 방울토마토, 에그스프레드, 강낭콩, 병아리콩, 스위트콘, 당근채
+                                                        <br>
+                                                        <b>・드레싱</b> : 이탈리안
+                                                    </p>
+                                                </div>
+                                                <div class="pickImg">
+                                                    <img class="introImg" src="/img/goods/view/section3_1/pick02_3.jpg">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pick03">
+                                            <img class="introImg" src="/img/goods/view/section3_1/pick03.jpg">
+                                        </div>
+
+                                        <div class="allergyDetail">
+                                            <span>알레르기정보</span>
+                                            <br><br>
+                                            <p>                                            
+                                                - 쉬림프 에그 샐러드 : 토마토, 대두, 새우, 알류(달걀, 메추리알), 우유, 밀, 조개류(굴) 함유
+                                                <br>
+                                                &nbsp;&nbsp;&nbsp;쇠고기, 돼지고기, 메밀, 땅콩, 게, 복숭아, 아황산류, 호두, 닭고기, 오징어, 고등어, 조개류(전복, 홍합 포함), 잣을 사용한 제품과 같은 제조시설에서 제조
+                                                <br><br>
+                                                - 허니 리코타 샐러드 : 복숭아, 우유, 밀, 토마토 함유
+                                                <br><br>
+                                                - 쉬림프 에그 샐러드 : 토마토, 대두, 새우, 알류(달걀, 메추리알), 우유, 밀, 조개류(굴) 함유
+                                                <br>
+                                                &nbsp;&nbsp;&nbsp;쇠고기, 돼지고기, 메밀, 땅콩, 게, 복숭아, 아황산류, 호두, 닭고기, 오징어, 고등어, 조개류(전복, 홍합 포함), 잣을 사용한 제품과 같은 제조시설에서 제조
+                                                <br><br>
+                                                - 허니 리코타 샐러드 : 복숭아, 우유, 밀, 토마토 함유
+                                                <br><br>
+                                                - 쉬림프 에그 샐러드 : 토마토, 대두, 새우, 알류(달걀, 메추리알), 우유, 밀, 조개류(굴) 함유
+                                                <br>
+                                                &nbsp;&nbsp;&nbsp;쇠고기, 돼지고기, 메밀, 땅콩, 게, 복숭아, 아황산류, 호두, 닭고기, 오징어, 고등어, 조개류(전복, 홍합 포함), 잣을 사용한 제품과 같은 제조시설에서 제조
+                                                <br><br>
+                                                - 허니 리코타 샐러드 : 복숭아, 우유, 밀, 토마토 함유
+                                            </p>    
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 상품평 -->
+                        <div id="tab-2" class="tab-content">
+                            <div class="seciton3_2" id="goodsReview">
+                                <div class="review">
+                                    <div class="review_01">
+                                        <div class="box review_wrap">
+                                            <div class="boxTitle">
+                                                <span>상품평</span>
+                                                <span>&nbsp;&nbsp;해당 상품에 대한 상품평을 볼 수 있습니다.</span>
+                                                <br><br>
+                                            </div>
+                                                                        
+                                            <table id="review">
+                                                <tr>
+                                                    <th width="10%">번호</th>
+                                                    <th width="50%">제목</th>
+                                                    <th width="15%">작성자</th>
+                                                    <th width="15%">작성일</th>
+                                                    <th width="10%">조회</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>공지</td>
+                                                    <td style="text-align: left;">상품 후기 적립금 정책 안내</td>
+                                                    <td>EasyChelin</td>
+                                                    <td>2022-02-14</td>
+                                                    <td>123</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5" class="review_txt" style="text-align: left;">             
+                                                        <p style="color: #333;">"적립금 지급 정책"</p><br>
+                                                        1. 일반 후기 기존과 같이 작성 후 1~3일 내에 기본 적립금이 지급됩니다.<br>
+                                                        -글 후기 50원/건<br>
+                                                        -사진 후기 100원/건<br>
+                                                        *퍼플/더퍼플 러버스 고객님께는 더블 후기 적립금이 지급됩니다.<br>
+                                                        <br>
+                                                        2. Best 후기 & Best 후기 적립금은 일주일 단위로 선정 및 지급됩니다.<br>
+                                                        1) 선정 건 수 : 일주일 최대 30건<br>
+                                                        2) 지급 일시 : 매주 수요일( 지급일이 공휴일의 경우 전 영업일)<br>
+                                                        3) 당첨 ID 및 그 주의 Best 후기는 후기 게시판 내 공지사항으로 등록됩니다.<br>
+                                                        <br>
+                                                        3. 상품 후기 게시판(Product review) 적립금 지급 유의 사항<br>
+                                                        1) 실제 구매한 상품의 후기가 아닌 경우 Best 후기 당첨 시 제외 됩니다.<br>
+                                                        2) 구매 상품 외의 사진이 첨부된 경우 후기 적립금 정책으로 제공한 적립금이 취소 될 수 있습니다.<br>
+                                                        3) 비정상적인 방법으로 참여한 경우, 적립금이 지급되지 않거나 회수 될 수 있습니다.<br>       
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td style="text-align: left;">고구마 샐러드</td>
+                                                    <td>김혜린</td>
+                                                    <td>2022-02-18</td>
+                                                    <td>105</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5" class="review_txt" style="text-align: left;">      
+                                                        <div>상품이름</div>
+                                                        <div>구매상품</div>
+                                                        <br>
+                                                        <p>한끼 먹기 좋아요.한끼 먹기 좋아요.한끼 먹기 좋아요.한끼 먹기 좋아요.</p>
+                                                    </td>
+                                                </tr>  
+                                            </table>    
+                                            
+                                            <div class="goodsWrite reviewWrite">
+                                                <a href="/mypage/goodsReviewWrite" onclick="window.open(this.href, '_blank', 'width=900, height=600, toolbars=no, scrollbars=yes'); return false;"><span style="font-size: 13px;">상품평 쓰기</span></a>
+                                            </div>
+
+                                            <br>
+
+                                            <div class="pagination">
+                                                <a href="#"><<</a>
+                                                <a href="#"><</a>
+                                                <a href="#">1</a>
+                                                <a href="#">2</a>
+                                                <a href="#">3</a>
+                                                <a href="#">4</a>
+                                                <a href="#">5</a>
+                                                <a href="#">6</a>
+                                                <a href="#">></a>
+                                                <a href="#">>></a>
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 상품문의 -->
+                        <div id="tab-3" class="tab-content">
+                            <div class="seciton3_3" id="goodsQna">
+                                <div class="goodsQna">
+                                    <div class="qna_01">
+                                        <div class="box qna_wrap">
+                                            <div class="boxTitle">
+                                                <span>상품문의</span>
+                                                <span style="margin-top: 1px;">&nbsp;&nbsp;해당 상품에 대한 문의를 볼 수 있습니다.</span>
+                                                <br><br>
+                                            </div>
+                                                         
+                                            <table id="qna">
+                                                <tr>
+                                                    <th width="60%" >제목</th>
+                                                    <th width="15%" >작성자</th>
+                                                    <th width="15%" >작성일</th>
+                                                    <th width="10%" >답변상태</th>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align: left;">
+                                                        <span class="qnaNoticeIcon" style="font-size: 11px;">공지</span>
+                                                        <span style="font-size: 13px;">판매 (일시)중단 제품 안내</span>
+                                                    </td>
+                                                    <td>EasyChelin</td>
+                                                    <td>2022-02-14</td>
+                                                    <td>-</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4" class="qna_txt" style="text-align: left;">             
+                                                        안녕하세요. 이지슐랭입니다. 
+                                                        <br>
+                                                        하기와 같은 사유로 인하여 판매(일시)중단 되었음을 안내드립니다.
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="qnaTitle" style="text-align: left; font-size: 13px;">유통기한</td>
+                                                    <td>김혜린</td>
+                                                    <td>2022-02-19</td>
+                                                    <td>-</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4" class="qna_txt" style="text-align: left;"> 
+                                                        <div class="qna_question">
+                                                            <span><img src="/img/goods/view/question_24_24_purple.png" width="20" height="20"></span>
+                                                            <span style="font-size: 13px;">유통기한이 안써져있네요</span>
+                                                        </div>            
+                                                        <div class="qna_answer">
+                                                            <span><img src="/img/goods/view/answer_24_24_purple.png" width="20" height="20"></span>
+                                                            <span style="font-size: 13px;">
+                                                                안녕하세요. 이지슐랭입니다. 
+                                                                <br><br>
+                                                                순차적인 답변으로 인해 답변이 늦었음에도 불구하고 기다려주셔서 감사합니다.
+                                                                <br><br>
+                                                                문의주신 상품의 유통기한은 주문시점에 따라 상이할 수 있어 정확한 답변이 어려운 점 양해 부탁드립니다.
+                                                                <br><br>
+                                                                더욱 발전하는 이지슐랭이 되겠습니다.
+                                                                <br><br>
+                                                                감사합니다.
+                                                                <br><br>
+                                                                2022-02-20
+                                                            </span>
+                                                        </div>
+                                                    </td>
+                                                </tr>                          
+                                            </table>
+
+                                            <div class="goodsWrite qnaWrite">
+                                                <a href="/mypage/goodsQnawWrite" onclick="window.open(this.href, '_blank', 'width=900, height=600, toolbars=no, scrollbars=yes'); return false;"><span style="font-size: 13px;">상품문의 쓰기</span></a>
+                                            </div>
+
+                                            <br>
+                                            
+                                            <div class="pagination">
+                                                <a href="#"><<</a>
+                                                <a href="#"><</a>
+                                                <a href="#">1</a>
+                                                <a href="#">2</a>
+                                                <a href="#">3</a>
+                                                <a href="#">4</a>
+                                                <a href="#">5</a>
+                                                <a href="#">6</a>
+                                                <a href="#">></a>
+                                                <a href="#">>></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 배송안내 -->
+                        <div id="tab-4" class="tab-content" style="text-align: left;">
+                            <div class="section3_4" id="goodsDelivery">
+                                <div class="deliveryNotice">
+                                    <span>배송 안내</span>
+                                    <br><br>
+                                    <p>
+                                        기본 배송료 : 3,000원 (도서산간 지역 배송비 추가)
+                                        <br>
+                                        무료 배송 : 50,000원 이상 구매 시 (도서산간 지역 100,000원 이상 구매 시)
+                                        <br>
+                                        상품배송
+                                        <br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;- 결제 완료 후 1~2일 이내 도착
+                                            <br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;- 영업일 오후 3시 이전 주문 시 : 당일 발송
+                                            <br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;- 영업일 오후 3시 이후 주문 시 : 명일 발송
+                                            <br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;- 토, 일 공휴일 주문 시  : 휴일 이후 영업일 첫날 발송
+                                            <br><br>
+                                        ※ 천재지변, 명절(설/추석)에는 택배사 배송 물량 폭주로 배송이 지연될 수 있으니 양해 부탁드립니다.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 교환/환불안내 -->
+                        <div id="tab-5" class="tab-content" style="text-align: left;">
+                            <div class="section3_5" id="goodsReturn">
+                                <div class="returnNotice">
+                                    <span>교환/반품 안내</span>
+                                    <br><br>
+                                    <p>
+                                        교환/반품에 관한 일반적인 사항은 판매자가 제시사항보다 관계법령이 우선합니다.<br>
+                                        다만, 판매자의 제시사항이 관계법령보다 소비자에게 유리한 경우에는 판매자 제시사항이 적용됩니다.<br>
+                                        <br><br>
+                                        <b>상품에 문제가 있는 경우</b><br>
+                                        <br>
+                                        &nbsp;&nbsp;받으신 상품이 표시ㆍ광고 내용 또는 계약 내용과 다른 경우에는 상품을 받은 날부터 3개월 이내,<br>
+                                        &nbsp;&nbsp;그 사실을 알게 된 날부터 30일 이내에 교환 및 환불을 요청하실 수 있습니다.<br>
+                                        &nbsp;&nbsp;상품의 정확한 상태를 확인 할 수 있도록 사진을 함께 보내주시면 더 빠른 상담이 가능합니다.<br>
+                                        <br>
+                                        &nbsp;&nbsp;※상품에 문제가 있는 것으로 확인되면 배송비는 이지슐랭이 부담합니다.<br>
+                                        <br><br>
+                                        <b>단순 변심, 주문 착오의 경우</b><br>
+                                        <br>
+                                        &nbsp;&nbsp;신선/냉장/냉동 식품<br>
+                                        <br>
+                                        &nbsp;&nbsp;재판매가 불가한 상품의 특성상, 단순 변심, 주문 착오 시 교환 및 반품이 어려운 점 양해 부탁드립니다.<br>
+                                        &nbsp;&nbsp;상품에 따라 조금씩 맛이 다를 수 있으며, 개인의 기호에 따라 같은 상품도 다르게 느끼실 수 있습니다.<br>
+                                        <br>
+                                        &nbsp;&nbsp;유통기한 30일 이상 식품(신선/냉장/냉동 제외) & 기타 상품<br>
+                                        &nbsp;&nbsp;상품을 받은 날부터 7일 이내에 고객센터로 문의해주세요.<br>
+                                        <br>
+                                        &nbsp;&nbsp;※단순 변심으로 인한 교환 또는 환불의 경우 고객님께서 배송비 6,000원을 부담하셔야 합니다.<br>
+                                        &nbsp;&nbsp;(주문 건 배송비를 결제하셨을 경우 3,000원)<br>
+                                        <br><br>
+                                        <b>교환ㆍ반품이 불가한 경우</b><br>
+                                        <br>
+                                        &nbsp;&nbsp;다음에 해당하는 교환ㆍ환불 신청은 처리가 어려울 수 있으니 양해 부탁드립니다.<br>
+                                        <br>
+                                        &nbsp;&nbsp;1) 고객님의 책임 있는 사요로 상품이 멸실되거나 훼손된 경우<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(단, 상품의 내용을 확인하기 위해 포장 등을 훼손한 경우는 제외)<br>
+                                        &nbsp;&nbsp;2) 고객님의 사용 또는 일부 소비로 상품의 가치가 감소한 경우<br>
+                                        &nbsp;&nbsp;3) 시간이 지나 다시 판매하기 곤란 할 정도로 상품의 가치가 감소한 경우<br>
+                                        &nbsp;&nbsp;4) 복제가 가능한 상품의 포장이 훼손된 경우<br>
+                                        &nbsp;&nbsp;5) 고객님의 주문에 따라 개별적으로 생산되는 상품의 제작이 이미 진행된 경우<br>
+                                        <br><br>
+                                        <b>주문 취소 안내</b><br>
+                                        <br>
+                                        &nbsp;&nbsp;[배송준비중] 이전까지 주문 취소 가능합니다.<br>
+                                        &nbsp;&nbsp;[마이페이지>주문내역 상세페이지]에서 직접 취소하실 수 있습니다.<br>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+    
+    <!-- 푸터 -->
+    <div id="footer"></div>
+</body>
+</html>

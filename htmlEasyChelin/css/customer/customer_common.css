@@ -1,0 +1,170 @@
+
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #333;
+    list-style: none;
+}    
+
+        /* 공지사항의 h4와 p태그  */
+        h3 {
+            padding-bottom: 30px;
+            font-size: 28px;
+            color: #333;
+        }
+       h4 {
+            display: inline-block;
+            padding-bottom: 35px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        p {
+            display: inline-block;
+            color: #999;
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: -.3px;
+            vertical-align: 3px;
+        }
+
+        
+
+        ol {
+            list-style: none;
+        }
+
+
+    /* 고객센터(list-menu) */
+            
+    .list-menu {
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+    }
+
+    .none{
+        font-size: 14px;  
+        font-weight:500;     
+        border: 1px solid #f2f2f2;
+        color: #666;
+        height: 50px;
+        line-height: 50px;
+        width: 200px;
+        padding-left: 20px;
+    }
+    .none a{
+        font-size: 14px;   
+        font-weight:500;     
+        border: 1px solid #f2f2f2;
+        color: #666;
+        height: 50px;
+        line-height: 50px;
+        width: 200px;
+        padding-left: 20px;
+    }
+    .none:hover{
+        font-size: 14px;   
+        font-weight:500;
+        color: rgb(95, 0, 128); 
+        height: 50px;
+        line-height: 50px;
+        padding-left: 20px;
+        background-color: #fafafa;
+    }
+
+    .active {
+        font-size: 14px;   
+        font-weight:500;
+        width: 200px;
+        color: rgb(95, 0, 128); 
+        height: 50px;
+        line-height: 50px;
+        padding-left: 20px;
+        background-color: #fafafa;     
+        border: 1px solid #f2f2f2;
+    }
+    
+
+    /* list메뉴의 맨 아랫줄 빼고 겹치는 줄을 없애줌, collapse와 비슷한 기능 */
+    .list-menu li:nth-child(-n+3){
+        border-bottom: none;
+    }
+
+    .list-menu {
+        border-bottom: 1px solid #f2f2f2;
+    }
+
+    .last {
+        border-bottom: "";
+        border-bottom: 1px solid #cc1616;
+    }
+    
+    /* list-menu 오버시 보라색 화살표로 변함 */
+    .list-menu li:hover .list_img2 {
+        display: inline-block;
+        top: 14px;
+        
+    }
+
+    /* snb의 검정색 화살표 */
+    .list_img {
+        width: 20px;
+        height: 20px;
+        top: 14px;
+        position: absolute;
+        right: 10px;
+    }
+    /* snb의 보라색 화살표 */
+    .list_img2 {
+        display: none;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: 10px;
+    }
+
+    /*pagination  */
+    .page {
+        margin-top: 10px;
+    }
+
+    .pagination {
+        list-style: none;
+        display: inline-block;
+        margin:0;
+        padding: 0;
+    }
+
+    /* 떨어진 요소들을 붙여주기위해  margin: 0 사용  */
+    .pagination li {
+        display: inline;
+        text-align: center;
+        margin: 0;
+    }
+    
+    .pagination a {
+        float: left;
+        display: block;
+        font-family: 'Nanum Gothic', sans-serif;
+        font-size: 12px;
+        text-decoration: none;
+        padding: 5px 11px;
+        color: #666;
+        border-top: 1px solid rgb(200, 200, 200);
+        border-bottom: 1px solid rgb(200, 200, 200);
+        border-right: 1px solid rgb(200, 200, 200);
+    }
+
+    .pagination a:hover {
+        color: rgb(95, 0, 128);
+        background-color: #f7f7f7;
+        text-decoration: none;
+    }
+    
+    #left_arrow1 {
+        border-left: 1px solid rgb(200, 200, 200);
+    }
+
+
+
+
